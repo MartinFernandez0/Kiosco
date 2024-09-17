@@ -45,7 +45,7 @@ namespace KioscoInformaticoDesktop.Views
         {
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                MessageBox.Show("El campo Nombre es obligatorio");
+                MessageBox.Show("El campo Nombre es obligatorio, por favor completelo");
                 return;
             }
             var localidad = new Localidad
