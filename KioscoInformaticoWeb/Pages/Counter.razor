@@ -1,0 +1,25 @@
+﻿@page "/counter"
+@inject ILogger<Counter> Logger
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Contador</h1>
+
+<p role="status">Contador Actual: @currentContador</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click Aqui</button>
+
+@code {
+    private int currentContador = 0;
+
+    private void IncrementCount()
+    {
+        currentContador++;
+        Logger.LogInformation("Contador incrementado en 1");
+    }
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Counter Page Initialized");
+    }
+}

@@ -1,0 +1,40 @@
+﻿@page "/localidades"
+@inject IGenericService<Localidad> LocalidadService
+
+<h3>Localidades</h3>
+
+@if (localidades == null)
+{
+    <p><em>Obteniendo lista de localidades...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var localidad in localidades)
+            {
+                <tr>
+                    <td>@localidad.Id</td>
+                    <td>@localidad.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Localidad>? localidades;
+
+    protected override async Task OnInitializedAsync()
+    {
+        localidades = await LocalidadService.GetAllAsync();
+    }
+}
+
+
