@@ -12,9 +12,9 @@ namespace KioscoInformaticoServices.Services
 {
     public class GenericService<T> : IGenericService<T> where T : class
     {
-        private readonly HttpClient client;
-        private readonly JsonSerializerOptions options;
-        private readonly string _endpoint;
+        protected readonly HttpClient client;
+        protected readonly JsonSerializerOptions options;
+        protected readonly string _endpoint;
 
         public GenericService()
         {

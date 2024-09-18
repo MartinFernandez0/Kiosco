@@ -41,6 +41,9 @@
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
+            iconButtonBuscar = new FontAwesome.Sharp.IconButton();
+            txtFiltro = new TextBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -75,7 +78,7 @@
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPageLista);
             tabControl1.Controls.Add(tabPageAgregarEditar);
-            tabControl1.Location = new Point(43, 97);
+            tabControl1.Location = new Point(58, 143);
             tabControl1.Margin = new Padding(3, 2, 3, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -182,7 +185,7 @@
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 35;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(715, 336);
+            btnEliminar.Location = new Point(715, 388);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(109, 46);
@@ -199,7 +202,7 @@
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnModificar.IconSize = 35;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(715, 249);
+            btnModificar.Location = new Point(715, 301);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(109, 46);
@@ -216,7 +219,7 @@
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregar.IconSize = 35;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(715, 162);
+            btnAgregar.Location = new Point(715, 214);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(109, 46);
@@ -225,11 +228,48 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
+            // iconButtonBuscar
+            // 
+            iconButtonBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            iconButtonBuscar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
+            iconButtonBuscar.IconColor = Color.Black;
+            iconButtonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonBuscar.IconSize = 35;
+            iconButtonBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonBuscar.Location = new Point(715, 101);
+            iconButtonBuscar.Margin = new Padding(3, 2, 3, 2);
+            iconButtonBuscar.Name = "iconButtonBuscar";
+            iconButtonBuscar.Size = new Size(109, 46);
+            iconButtonBuscar.TabIndex = 16;
+            iconButtonBuscar.Text = "Agregar";
+            iconButtonBuscar.UseVisualStyleBackColor = true;
+            iconButtonBuscar.Click += iconButtonBuscar_Click_1;
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(390, 114);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(278, 23);
+            txtFiltro.TabIndex = 17;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(249, 122);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 15);
+            label3.TabIndex = 18;
+            label3.Text = "BUSCAR LOCALIDAD";
+            // 
             // LocalidadesView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(854, 531);
+            Controls.Add(label3);
+            Controls.Add(txtFiltro);
+            Controls.Add(iconButtonBuscar);
             Controls.Add(btnEliminar);
             Controls.Add(tabControl1);
             Controls.Add(btnModificar);
@@ -247,6 +287,7 @@
             tabPageAgregarEditar.ResumeLayout(false);
             tabPageAgregarEditar.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -264,5 +305,8 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton iconButtonBuscar;
+        private TextBox txtFiltro;
+        private Label label3;
     }
 }
