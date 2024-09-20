@@ -11,9 +11,9 @@ namespace KioscoInformaticoServices.Services
 {
     public class LocalidadService : GenericService<Localidad>, ILocalidadService
     {
-        public async Task<List<Localidad>?> GetAllAsync(string? Filtro)
+        public async Task<List<Localidad>?> GetAllAsync(string? filtro)
         {
-            var response = await client.GetAsync($"{_endpoint}?Filtro={Filtro}");
+            var response = await client.GetAsync($"{_endpoint}?filtro={filtro}");
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {

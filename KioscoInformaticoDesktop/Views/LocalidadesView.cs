@@ -19,10 +19,9 @@ namespace KioscoInformaticoDesktop.Views
     public partial class LocalidadesView : Form
     {
         ILocalidadService localidadService = new LocalidadService();
-
         BindingSource listaLocalidades = new BindingSource();
-
         Localidad localidadCurrent;
+
         public LocalidadesView()
         {
             InitializeComponent();
@@ -102,9 +101,7 @@ namespace KioscoInformaticoDesktop.Views
             }
         }
 
-        // Filter
-
-        private void iconButtonBuscar_Click_1(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             FiltrarLocalidad();
         }

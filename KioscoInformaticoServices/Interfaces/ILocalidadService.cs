@@ -9,6 +9,6 @@ namespace KioscoInformaticoServices.Interfaces
 {
     public interface ILocalidadService : IGenericService<Localidad>
     {
-        public Task<List<Localidad>?> GetAllAsync(string? Filtro);
+        public Task<List<Localidad>?> GetAllAsync(string? filtro);
     }
 }

@@ -41,7 +41,7 @@
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
-            iconButtonBuscar = new FontAwesome.Sharp.IconButton();
+            btnBuscar = new FontAwesome.Sharp.IconButton();
             txtFiltro = new TextBox();
             label3 = new Label();
             panel1.SuspendLayout();
@@ -228,22 +228,22 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // iconButtonBuscar
+            // btnBuscar
             // 
-            iconButtonBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            iconButtonBuscar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            iconButtonBuscar.IconColor = Color.Black;
-            iconButtonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonBuscar.IconSize = 35;
-            iconButtonBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonBuscar.Location = new Point(715, 101);
-            iconButtonBuscar.Margin = new Padding(3, 2, 3, 2);
-            iconButtonBuscar.Name = "iconButtonBuscar";
-            iconButtonBuscar.Size = new Size(109, 46);
-            iconButtonBuscar.TabIndex = 16;
-            iconButtonBuscar.Text = "Agregar";
-            iconButtonBuscar.UseVisualStyleBackColor = true;
-            iconButtonBuscar.Click += iconButtonBuscar_Click_1;
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnBuscar.IconColor = Color.Black;
+            btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscar.IconSize = 35;
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(715, 101);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(109, 46);
+            btnBuscar.TabIndex = 16;
+            btnBuscar.Text = "Agregar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtFiltro
             // 
@@ -269,7 +269,7 @@
             ClientSize = new Size(854, 531);
             Controls.Add(label3);
             Controls.Add(txtFiltro);
-            Controls.Add(iconButtonBuscar);
+            Controls.Add(btnBuscar);
             Controls.Add(btnEliminar);
             Controls.Add(tabControl1);
             Controls.Add(btnModificar);
@@ -305,7 +305,7 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnEliminar;
-        private FontAwesome.Sharp.IconButton iconButtonBuscar;
+        private FontAwesome.Sharp.IconButton btnBuscar;
         private TextBox txtFiltro;
         private Label label3;
     }

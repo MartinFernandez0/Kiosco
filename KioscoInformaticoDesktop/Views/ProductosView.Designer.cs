@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridProductos = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            dataGridProductosView = new DataGridView();
             tabControl1 = new TabControl();
             tabPageLista = new TabPage();
             tabPageAgregarEditar = new TabPage();
@@ -41,34 +42,46 @@
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)dataGridProductos).BeginInit();
+            label3 = new Label();
+            txtFiltro = new TextBox();
+            btnBuscar = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)dataGridProductosView).BeginInit();
             tabControl1.SuspendLayout();
             tabPageLista.SuspendLayout();
             tabPageAgregarEditar.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridProductos
+            // dataGridProductosView
             // 
-            dataGridProductos.AllowUserToAddRows = false;
-            dataGridProductos.AllowUserToDeleteRows = false;
-            dataGridProductos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridProductos.Location = new Point(0, 0);
-            dataGridProductos.Margin = new Padding(3, 2, 3, 2);
-            dataGridProductos.Name = "dataGridProductos";
-            dataGridProductos.ReadOnly = true;
-            dataGridProductos.RowHeadersWidth = 51;
-            dataGridProductos.Size = new Size(606, 302);
-            dataGridProductos.TabIndex = 16;
+            dataGridProductosView.AllowUserToAddRows = false;
+            dataGridProductosView.AllowUserToDeleteRows = false;
+            dataGridProductosView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridProductosView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridProductosView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridProductosView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridProductosView.Location = new Point(0, 0);
+            dataGridProductosView.Margin = new Padding(3, 2, 3, 2);
+            dataGridProductosView.Name = "dataGridProductosView";
+            dataGridProductosView.ReadOnly = true;
+            dataGridProductosView.RowHeadersWidth = 51;
+            dataGridProductosView.Size = new Size(606, 302);
+            dataGridProductosView.TabIndex = 16;
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPageLista);
             tabControl1.Controls.Add(tabPageAgregarEditar);
-            tabControl1.Location = new Point(43, 97);
+            tabControl1.Location = new Point(47, 147);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(614, 332);
@@ -76,7 +89,7 @@
             // 
             // tabPageLista
             // 
-            tabPageLista.Controls.Add(dataGridProductos);
+            tabPageLista.Controls.Add(dataGridProductosView);
             tabPageLista.Location = new Point(4, 24);
             tabPageLista.Name = "tabPageLista";
             tabPageLista.Padding = new Padding(3);
@@ -178,7 +191,7 @@
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 35;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(704, 335);
+            btnEliminar.Location = new Point(708, 380);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(109, 46);
@@ -195,7 +208,7 @@
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnModificar.IconSize = 35;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(704, 248);
+            btnModificar.Location = new Point(708, 293);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(109, 46);
@@ -212,7 +225,7 @@
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregar.IconSize = 35;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(704, 161);
+            btnAgregar.Location = new Point(708, 206);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(109, 46);
@@ -221,11 +234,48 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click_1;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(242, 126);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 15);
+            label3.TabIndex = 27;
+            label3.Text = "BUSCAR LOCALIDAD";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(383, 118);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(278, 23);
+            txtFiltro.TabIndex = 26;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnBuscar.IconColor = Color.Black;
+            btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscar.IconSize = 35;
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(708, 105);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(109, 46);
+            btnBuscar.TabIndex = 25;
+            btnBuscar.Text = "Agregar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
             // ProductosView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(854, 531);
+            Controls.Add(label3);
+            Controls.Add(txtFiltro);
+            Controls.Add(btnBuscar);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -234,7 +284,7 @@
             Name = "ProductosView";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Productos";
-            ((System.ComponentModel.ISupportInitialize)dataGridProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProductosView).EndInit();
             tabControl1.ResumeLayout(false);
             tabPageLista.ResumeLayout(false);
             tabPageAgregarEditar.ResumeLayout(false);
@@ -242,10 +292,11 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private DataGridView dataGridProductos;
+        private DataGridView dataGridProductosView;
         private TabControl tabControl1;
         private TabPage tabPageLista;
         private TabPage tabPageAgregarEditar;
@@ -258,5 +309,8 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnGuardar;
+        private Label label3;
+        private TextBox txtFiltro;
+        private FontAwesome.Sharp.IconButton btnBuscar;
     }
 }
