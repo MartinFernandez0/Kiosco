@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dataGridProductosView = new DataGridView();
             tabControl1 = new TabControl();
             tabPageLista = new TabPage();
@@ -60,15 +60,15 @@
             dataGridProductosView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridProductosView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridProductosView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridProductosView.Location = new Point(0, 0);
             dataGridProductosView.Margin = new Padding(3, 2, 3, 2);
             dataGridProductosView.Name = "dataGridProductosView";
@@ -189,12 +189,12 @@
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.IconSize = 35;
+            btnEliminar.IconSize = 20;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(708, 380);
+            btnEliminar.Location = new Point(708, 335);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(109, 46);
+            btnEliminar.Size = new Size(127, 38);
             btnEliminar.TabIndex = 24;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -206,12 +206,12 @@
             btnModificar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
             btnModificar.IconColor = Color.Black;
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnModificar.IconSize = 35;
+            btnModificar.IconSize = 20;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
             btnModificar.Location = new Point(708, 293);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(109, 46);
+            btnModificar.Size = new Size(127, 38);
             btnModificar.TabIndex = 23;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -223,12 +223,12 @@
             btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
             btnAgregar.IconColor = Color.Black;
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.IconSize = 35;
+            btnAgregar.IconSize = 20;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(708, 206);
+            btnAgregar.Location = new Point(708, 251);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(109, 46);
+            btnAgregar.Size = new Size(127, 38);
             btnAgregar.TabIndex = 22;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -237,11 +237,12 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.Location = new Point(242, 126);
             label3.Name = "label3";
-            label3.Size = new Size(118, 15);
+            label3.Size = new Size(127, 15);
             label3.TabIndex = 27;
-            label3.Text = "BUSCAR LOCALIDAD";
+            label3.Text = "BUSCAR PRODUCTO";
             // 
             // txtFiltro
             // 
@@ -257,14 +258,15 @@
             btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             btnBuscar.IconColor = Color.Black;
             btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscar.IconSize = 35;
+            btnBuscar.IconSize = 20;
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(708, 105);
+            btnBuscar.Location = new Point(708, 109);
             btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(109, 46);
+            btnBuscar.RightToLeft = RightToLeft.No;
+            btnBuscar.Size = new Size(127, 38);
             btnBuscar.TabIndex = 25;
-            btnBuscar.Text = "Agregar";
+            btnBuscar.Text = "Busqueda";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 

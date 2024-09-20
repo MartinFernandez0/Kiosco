@@ -78,7 +78,7 @@
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPageLista);
             tabControl1.Controls.Add(tabPageAgregarEditar);
-            tabControl1.Location = new Point(58, 143);
+            tabControl1.Location = new Point(50, 147);
             tabControl1.Margin = new Padding(3, 2, 3, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -183,12 +183,12 @@
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.IconSize = 35;
+            btnEliminar.IconSize = 20;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(715, 388);
+            btnEliminar.Location = new Point(707, 335);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(109, 46);
+            btnEliminar.Size = new Size(127, 38);
             btnEliminar.TabIndex = 15;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -200,12 +200,12 @@
             btnModificar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
             btnModificar.IconColor = Color.Black;
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnModificar.IconSize = 35;
+            btnModificar.IconSize = 20;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(715, 301);
+            btnModificar.Location = new Point(707, 293);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(109, 46);
+            btnModificar.Size = new Size(127, 38);
             btnModificar.TabIndex = 14;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -217,12 +217,12 @@
             btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
             btnAgregar.IconColor = Color.Black;
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.IconSize = 35;
+            btnAgregar.IconSize = 20;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(715, 214);
+            btnAgregar.Location = new Point(707, 251);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(109, 46);
+            btnAgregar.Size = new Size(127, 38);
             btnAgregar.TabIndex = 13;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -234,20 +234,20 @@
             btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             btnBuscar.IconColor = Color.Black;
             btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscar.IconSize = 35;
+            btnBuscar.IconSize = 20;
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(715, 101);
+            btnBuscar.Location = new Point(707, 114);
             btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(109, 46);
+            btnBuscar.Size = new Size(127, 38);
             btnBuscar.TabIndex = 16;
-            btnBuscar.Text = "Agregar";
+            btnBuscar.Text = "Busqueda";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(390, 114);
+            txtFiltro.Location = new Point(382, 118);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(278, 23);
             txtFiltro.TabIndex = 17;
@@ -256,9 +256,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(249, 122);
+            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Location = new Point(241, 126);
             label3.Name = "label3";
-            label3.Size = new Size(118, 15);
+            label3.Size = new Size(128, 15);
             label3.TabIndex = 18;
             label3.Text = "BUSCAR LOCALIDAD";
             // 
