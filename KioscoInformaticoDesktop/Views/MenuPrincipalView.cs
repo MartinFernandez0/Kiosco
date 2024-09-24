@@ -29,5 +29,11 @@ namespace KioscoInformaticoDesktop
                 Application.Exit();
             }
         }
+
+        private void menuItemClientes_Click(object sender, EventArgs e)
+        {
+            ClientesView clientesView = new ClientesView();
+            clientesView.ShowDialog();
+        }
     }
 }

@@ -1,0 +1,39 @@
+﻿
+@code {
+    private List<Cliente>? clientes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientes = await ClienteService.GetAllAsync();
+    }
+}
+
+@page "/clientes"
+@inject IGenericService<Cliente> ClienteService
+
+<h3>Clientes</h3>
+
+@if (clientes == null)
+{
+    <p><em>Obteniendo lista de clientes...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in clientes)
+            {
+                <tr>
+                    <td>@cliente.Id</td>
+                    <td>@cliente.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

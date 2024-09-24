@@ -34,6 +34,7 @@
             menuItemLocalidades = new FontAwesome.Sharp.IconMenuItem();
             menuItemProductos = new FontAwesome.Sharp.IconMenuItem();
             MenuItemClose = new FontAwesome.Sharp.IconMenuItem();
+            menuItemClientes = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,12 +59,12 @@
             iconMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
             iconMenuItem1.Margin = new Padding(0, 5, 5, 10);
             iconMenuItem1.Name = "iconMenuItem1";
-            iconMenuItem1.Size = new Size(134, 44);
+            iconMenuItem1.Size = new Size(105, 42);
             iconMenuItem1.Text = "Principal";
             // 
             // iconMenuItem3
             // 
-            iconMenuItem3.DropDownItems.AddRange(new ToolStripItem[] { menuItemLocalidades, menuItemProductos });
+            iconMenuItem3.DropDownItems.AddRange(new ToolStripItem[] { menuItemLocalidades, menuItemProductos, menuItemClientes });
             iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Database;
             iconMenuItem3.IconColor = Color.Black;
             iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -71,7 +72,7 @@
             iconMenuItem3.ImageScaling = ToolStripItemImageScaling.None;
             iconMenuItem3.Margin = new Padding(0, 5, 5, 10);
             iconMenuItem3.Name = "iconMenuItem3";
-            iconMenuItem3.Size = new Size(134, 44);
+            iconMenuItem3.Size = new Size(88, 42);
             iconMenuItem3.Text = "Bases";
             // 
             // menuItemLocalidades
@@ -104,9 +105,19 @@
             MenuItemClose.Margin = new Padding(0, 5, 5, 10);
             MenuItemClose.Name = "MenuItemClose";
             MenuItemClose.Padding = new Padding(0);
-            MenuItemClose.Size = new Size(134, 44);
+            MenuItemClose.Size = new Size(73, 42);
             MenuItemClose.Text = "Salir";
             MenuItemClose.Click += MenuItemClose_Click;
+            // 
+            // menuItemClientes
+            // 
+            menuItemClientes.IconChar = FontAwesome.Sharp.IconChar.User;
+            menuItemClientes.IconColor = Color.Black;
+            menuItemClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuItemClientes.Name = "menuItemClientes";
+            menuItemClientes.Size = new Size(184, 26);
+            menuItemClientes.Text = "Clientes";
+            menuItemClientes.Click += menuItemClientes_Click;
             // 
             // MenuPrincipalView
             // 
@@ -133,5 +144,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
         private FontAwesome.Sharp.IconMenuItem menuItemLocalidades;
         private FontAwesome.Sharp.IconMenuItem menuItemProductos;
+        private FontAwesome.Sharp.IconMenuItem menuItemClientes;
     }
 }
