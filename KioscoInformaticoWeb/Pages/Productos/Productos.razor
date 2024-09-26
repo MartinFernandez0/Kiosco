@@ -1,0 +1,51 @@
+﻿@page "/productos"
+@inject IGenericService<Producto> ProductoService
+@inject NavigationManager NavigationManager
+
+<h3>Productos</h3>
+
+@if (productos == null)
+{
+    <p><em>Obteniendo lista de productos...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in productos)
+            {
+                <tr>
+                    <td>@producto.Id</td>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Precio</td>
+                    <td>
+                        <a href="/editarproducto?idProductoEditado=@producto.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button @onclick="AgregarProducto">Agregar Producto</button>
+
+@code {
+    private List<Producto>? productos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        productos = await ProductoService.GetAllAsync();
+    }
+
+    public void AgregarProducto()
+    {
+        NavigationManager.NavigateTo("/agregarproducto");
+    }
+}

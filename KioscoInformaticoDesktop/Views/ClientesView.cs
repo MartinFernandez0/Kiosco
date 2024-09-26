@@ -28,9 +28,9 @@ namespace KioscoInformaticoDesktop.Views
             CargarGrilla();
         }
 
-        private void CargarGrilla()
+        private async Task CargarGrilla()
         {
-            listaClientes.DataSource = clienteService.GetAllAsync();
+            listaClientes.DataSource = await clienteService.GetAllAsync();
             listaAFiltrar = (List<Cliente>)listaClientes.DataSource;
         }
 
@@ -61,8 +61,8 @@ namespace KioscoInformaticoDesktop.Views
                 if (result == DialogResult.Yes)
                 {
                     await clienteService.DeleteAsync(cliente.Id);
-                    CargarGrilla();
-                    MessageBox.Show("Producto eliminado correctamente");
+                    await CargarGrilla();
+                    MessageBox.Show("Cliente eliminado correctamente");
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace KioscoInformaticoDesktop.Views
 
             MessageBox.Show("Cliente guardado correctamente", "Cliente guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            CargarGrilla();
+            await CargarGrilla();
             txtNombre.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtTelefono.Text = string.Empty;
