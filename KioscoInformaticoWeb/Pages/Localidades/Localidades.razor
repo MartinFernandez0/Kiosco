@@ -1,5 +1,7 @@
 ﻿@page "/localidades"
 @inject IGenericService<Localidad> LocalidadService
+@inject NavigationManager NavigationManager
+
 
 <h3>Localidades</h3>
 
@@ -32,12 +34,18 @@ else
     </table>
 }
 
+<button @onclick="AgregarLocalidad">Agregar Localidad</button>
+
 @code {
     private List<Localidad>? localidades;
 
     protected override async Task OnInitializedAsync()
     {
         localidades = await LocalidadService.GetAllAsync();
+    }
+    public void AgregarLocalidad()
+    {
+        NavigationManager.NavigateTo("/agregarlocalidad");
     }
 }
 
