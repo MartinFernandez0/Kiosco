@@ -18,9 +18,13 @@ namespace KioscoInformaticoBackend.Controllers
 
         // GET: api/Clientes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes([FromQuery] string? Filtro)
         {
-            return await _context.Clientes.ToListAsync();
+            if (Filtro != null)
+            {
+                return await _context.Clientes.Include(c => c.Localidad).Where(c => c.Nombre.ToUpper().Contains(Filtro.ToUpper())).ToListAsync();
+            }
+            return await _context.Clientes.Include(c => c.Localidad).ToListAsync();
         }
 
         // GET: api/Clientes/5

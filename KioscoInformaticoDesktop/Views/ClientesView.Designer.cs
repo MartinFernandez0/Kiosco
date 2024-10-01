@@ -41,6 +41,8 @@
             tabPageLista = new TabPage();
             dataGridClientesView = new DataGridView();
             tabPageAgregarEditar = new TabPage();
+            comboBoxLocalidades = new ComboBox();
+            label7 = new Label();
             dateTimeFechaNacimiento = new DateTimePicker();
             label6 = new Label();
             txtTelefono = new TextBox();
@@ -200,7 +202,6 @@
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
@@ -212,9 +213,12 @@
             dataGridClientesView.RowHeadersWidth = 51;
             dataGridClientesView.Size = new Size(609, 308);
             dataGridClientesView.TabIndex = 16;
+            dataGridClientesView.CellContentClick += dataGridClientesView_CellContentClick;
             // 
             // tabPageAgregarEditar
             // 
+            tabPageAgregarEditar.Controls.Add(comboBoxLocalidades);
+            tabPageAgregarEditar.Controls.Add(label7);
             tabPageAgregarEditar.Controls.Add(dateTimeFechaNacimiento);
             tabPageAgregarEditar.Controls.Add(label6);
             tabPageAgregarEditar.Controls.Add(txtTelefono);
@@ -233,9 +237,26 @@
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
+            // comboBoxLocalidades
+            // 
+            comboBoxLocalidades.FormattingEnabled = true;
+            comboBoxLocalidades.Location = new Point(100, 204);
+            comboBoxLocalidades.Name = "comboBoxLocalidades";
+            comboBoxLocalidades.Size = new Size(140, 23);
+            comboBoxLocalidades.TabIndex = 25;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(36, 210);
+            label7.Name = "label7";
+            label7.Size = new Size(58, 15);
+            label7.TabIndex = 24;
+            label7.Text = "Localidad";
+            // 
             // dateTimeFechaNacimiento
             // 
-            dateTimeFechaNacimiento.Location = new Point(100, 179);
+            dateTimeFechaNacimiento.Location = new Point(92, 163);
             dateTimeFechaNacimiento.Name = "dateTimeFechaNacimiento";
             dateTimeFechaNacimiento.Size = new Size(212, 23);
             dateTimeFechaNacimiento.TabIndex = 23;
@@ -243,7 +264,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(150, 161);
+            label6.Location = new Point(142, 145);
             label6.Name = "label6";
             label6.Size = new Size(122, 15);
             label6.TabIndex = 22;
@@ -382,5 +403,7 @@
         private TextBox txtDireccion;
         private Label label4;
         private DateTimePicker dateTimeFechaNacimiento;
+        private ComboBox comboBoxLocalidades;
+        private Label label7;
     }
 }

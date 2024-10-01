@@ -15,7 +15,9 @@ namespace KioscoInformaticoDesktop.Views
 {
     public partial class ClientesView : Form
     {
-        IGenericService<Cliente> clienteService = new GenericService<Cliente>();
+        IClienteService ClienteService = new ClienteService();
+        ILocalidadService LocalidadService = new LocalidadService();
+
         BindingSource listaClientes = new BindingSource();
         List<Cliente> listaAFiltrar = new List<Cliente>();
 
@@ -26,11 +28,20 @@ namespace KioscoInformaticoDesktop.Views
             InitializeComponent();
             dataGridClientesView.DataSource = listaClientes;
             CargarGrilla();
+            CargarCombo();
+        }
+
+        private async Task CargarCombo()
+        {
+            comboBoxLocalidades.DataSource = await LocalidadService.GetAllAsync();
+            comboBoxLocalidades.DisplayMember = "Nombre";
+            comboBoxLocalidades.ValueMember = "Id";
+            comboBoxLocalidades.SelectedItem = 0;
         }
 
         private async Task CargarGrilla()
         {
-            listaClientes.DataSource = await clienteService.GetAllAsync();
+            listaClientes.DataSource = await ClienteService.GetAllAsync();
             listaAFiltrar = (List<Cliente>)listaClientes.DataSource;
         }
 
@@ -50,6 +61,9 @@ namespace KioscoInformaticoDesktop.Views
             txtDireccion.Text = clienteCurrent.Direccion;
             txtTelefono.Text = clienteCurrent.Telefonos;
             dateTimeFechaNacimiento.Value = clienteCurrent.FechaNacimiento;
+
+            comboBoxLocalidades.SelectedValue = clienteCurrent.LocalidadId;
+
             tabControl1.SelectTab(tabPageAgregarEditar);
         }
 
@@ -60,7 +74,7 @@ namespace KioscoInformaticoDesktop.Views
                 var result = MessageBox.Show("¿Está seguro de eliminar el Cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    await clienteService.DeleteAsync(cliente.Id);
+                    await ClienteService.DeleteAsync(cliente.Id);
                     await CargarGrilla();
                     MessageBox.Show("Cliente eliminado correctamente");
                 }
@@ -80,7 +94,10 @@ namespace KioscoInformaticoDesktop.Views
                 Nombre = txtNombre.Text,
                 Direccion = txtDireccion.Text,
                 Telefonos = txtTelefono.Text,
-                FechaNacimiento = dateTimeFechaNacimiento.Value
+                FechaNacimiento = dateTimeFechaNacimiento.Value,
+
+                LocalidadId = (int)comboBoxLocalidades.SelectedValue
+
             };
 
             if (clienteCurrent != null)
@@ -90,12 +107,14 @@ namespace KioscoInformaticoDesktop.Views
                 clienteCurrent.Telefonos = txtTelefono.Text;
                 clienteCurrent.FechaNacimiento = dateTimeFechaNacimiento.Value;
 
-                await clienteService.UpdateAsync(clienteCurrent);
+                clienteCurrent.LocalidadId = (int)comboBoxLocalidades.SelectedValue;
+
+                await ClienteService.UpdateAsync(clienteCurrent);
                 clienteCurrent = null;
             }
             else
             {
-                await clienteService.AddAsync(cliente);
+                await ClienteService.AddAsync(cliente);
             }
 
             MessageBox.Show("Cliente guardado correctamente", "Cliente guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -113,6 +132,8 @@ namespace KioscoInformaticoDesktop.Views
             var result = MessageBox.Show("¿Está seguro de cancelar la operación?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                clienteCurrent = null;
+
                 txtNombre.Text = string.Empty;
                 txtDireccion.Text = string.Empty;
                 txtTelefono.Text = string.Empty;
@@ -135,6 +156,11 @@ namespace KioscoInformaticoDesktop.Views
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarClientes();
+        }
+
+        private void dataGridClientesView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
