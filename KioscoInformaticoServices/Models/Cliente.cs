@@ -8,11 +8,12 @@ public partial class Cliente
 {
     public int Id { get; set; }
 
-    public string Nombre { get; set; }
+    [Required (ErrorMessage = "El campo nombre es obligatorio")]
+    public string Nombre { get; set; } = null!;
 
-    public string Direccion { get; set; }
+    public string Direccion { get; set; } = null!;
 
-    public string Telefonos { get; set; }
+    public string Telefonos { get; set; } = null!;
 
     public DateTime FechaNacimiento { get; set; }
 
