@@ -2,11 +2,11 @@
 @inject IGenericService<Cliente> ClienteService
 @inject NavigationManager NavigationManager
 
-<h3>Agregar un cliente</h3>
+<HeaderPage TitlePage="Agregando un cliente" />
 
 @if (cliente == null)
 {
-    <p><em>Cargando...</em></p>
+    <p><em>Cargando....</em></p>
 }
 else
 {
@@ -22,7 +22,6 @@ else
         <ValidationSummary />
     </EditForm>
 }
-
 
 @code {
     [SupplyParameterFromQuery]
@@ -49,8 +48,11 @@ else
         {
             await ClienteService.AddAsync(cliente);
         }
+        else
+        {
+
+        }
 
         NavigationManager.NavigateTo("/clientes");
     }
-
 }

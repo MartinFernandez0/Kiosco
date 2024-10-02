@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace KioscoInformaticoServices.Models;
 
@@ -7,11 +8,11 @@ public partial class Cliente
 {
     public int Id { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    public string Nombre { get; set; }
 
-    public string Direccion { get; set; } = null!;
+    public string Direccion { get; set; }
 
-    public string Telefonos { get; set; } = null!;
+    public string Telefonos { get; set; }
 
     public DateTime FechaNacimiento { get; set; }
 
