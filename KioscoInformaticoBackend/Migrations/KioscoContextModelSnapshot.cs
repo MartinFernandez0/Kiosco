@@ -85,15 +85,6 @@ namespace KioscoInformaticoBackend.Migrations
                             LocalidadId = 3,
                             Nombre = "Carlos García",
                             Telefonos = "555666777"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Direccion = "Ruta Nacional 19 Km 58",
-                            FechaNacimiento = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LocalidadId = 1,
-                            Nombre = "Ana Martínez",
-                            Telefonos = "444555666"
                         });
                 });
 
@@ -157,15 +148,6 @@ namespace KioscoInformaticoBackend.Migrations
                             Iva = 5,
                             ProveedorId = 3,
                             Total = 3000
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Fecha = new DateTime(2021, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FormaDePago = 0,
-                            Iva = 0,
-                            ProveedorId = 4,
-                            Total = 4000
                         });
                 });
 
@@ -441,76 +423,6 @@ namespace KioscoInformaticoBackend.Migrations
                             LocalidadId = 3,
                             Nombre = "Proveedor C",
                             Telefonos = "333333333"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Cbu = "0000003100010000000004",
-                            CondicionIva = 2,
-                            Direccion = "Calle 4",
-                            LocalidadId = 1,
-                            Nombre = "Proveedor D",
-                            Telefonos = "444444444"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Cbu = "0000003100010000000005",
-                            CondicionIva = 3,
-                            Direccion = "Calle 5",
-                            LocalidadId = 1,
-                            Nombre = "Proveedor E",
-                            Telefonos = "555555555"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Cbu = "0000003100010000000006",
-                            CondicionIva = 1,
-                            Direccion = "Calle 6",
-                            LocalidadId = 2,
-                            Nombre = "Proveedor F",
-                            Telefonos = "666666666"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Cbu = "0000003100010000000007",
-                            CondicionIva = 0,
-                            Direccion = "Calle 7",
-                            LocalidadId = 3,
-                            Nombre = "Proveedor G",
-                            Telefonos = "777777777"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Cbu = "0000003100010000000008",
-                            CondicionIva = 6,
-                            Direccion = "Calle 8",
-                            LocalidadId = 2,
-                            Nombre = "Proveedor H",
-                            Telefonos = "888888888"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Cbu = "0000003100010000000009",
-                            CondicionIva = 5,
-                            Direccion = "Calle 9",
-                            LocalidadId = 3,
-                            Nombre = "Proveedor I",
-                            Telefonos = "999999999"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Cbu = "0000003100010000000010",
-                            CondicionIva = 2,
-                            Direccion = "Calle 10",
-                            LocalidadId = 3,
-                            Nombre = "Proveedor J",
-                            Telefonos = "101010101"
                         });
                 });
 
@@ -550,7 +462,7 @@ namespace KioscoInformaticoBackend.Migrations
                         {
                             Id = 1,
                             ClienteId = 1,
-                            Fecha = new DateTime(2024, 9, 13, 15, 27, 39, 298, DateTimeKind.Local).AddTicks(301),
+                            Fecha = new DateTime(2024, 10, 2, 18, 31, 0, 103, DateTimeKind.Local).AddTicks(7481),
                             FormaPago = 0,
                             Iva = 21m,
                             Total = 3000m
@@ -559,7 +471,7 @@ namespace KioscoInformaticoBackend.Migrations
                         {
                             Id = 2,
                             ClienteId = 2,
-                            Fecha = new DateTime(2024, 9, 13, 15, 27, 39, 298, DateTimeKind.Local).AddTicks(313),
+                            Fecha = new DateTime(2024, 10, 2, 18, 31, 0, 103, DateTimeKind.Local).AddTicks(7494),
                             FormaPago = 1,
                             Iva = 10m,
                             Total = 5000m
@@ -567,8 +479,8 @@ namespace KioscoInformaticoBackend.Migrations
                         new
                         {
                             Id = 3,
-                            ClienteId = 1,
-                            Fecha = new DateTime(2024, 9, 13, 15, 27, 39, 298, DateTimeKind.Local).AddTicks(315),
+                            ClienteId = 3,
+                            Fecha = new DateTime(2024, 10, 2, 18, 31, 0, 103, DateTimeKind.Local).AddTicks(7496),
                             FormaPago = 2,
                             Iva = 21m,
                             Total = 8000m
@@ -578,9 +490,8 @@ namespace KioscoInformaticoBackend.Migrations
             modelBuilder.Entity("KioscoInformaticoServices.Models.Cliente", b =>
                 {
                     b.HasOne("KioscoInformaticoServices.Models.Localidad", "Localidad")
-                        .WithMany("Clientes")
-                        .HasForeignKey("LocalidadId")
-                        .HasConstraintName("FK_Clientes_Localidades_LocalidadId");
+                        .WithMany()
+                        .HasForeignKey("LocalidadId");
 
                     b.Navigation("Localidad");
                 });
@@ -640,9 +551,8 @@ namespace KioscoInformaticoBackend.Migrations
             modelBuilder.Entity("KioscoInformaticoServices.Models.Proveedor", b =>
                 {
                     b.HasOne("KioscoInformaticoServices.Models.Localidad", "Localidad")
-                        .WithMany("Proveedores")
-                        .HasForeignKey("LocalidadId")
-                        .HasConstraintName("FK_Proveedores_Localidades_LocalidadId");
+                        .WithMany()
+                        .HasForeignKey("LocalidadId");
 
                     b.Navigation("Localidad");
                 });
@@ -650,30 +560,17 @@ namespace KioscoInformaticoBackend.Migrations
             modelBuilder.Entity("KioscoInformaticoServices.Models.Venta", b =>
                 {
                     b.HasOne("KioscoInformaticoServices.Models.Cliente", "Cliente")
-                        .WithMany("Venta")
+                        .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_Ventas_Clientes_ClienteId");
+                        .IsRequired();
 
                     b.Navigation("Cliente");
-                });
-
-            modelBuilder.Entity("KioscoInformaticoServices.Models.Cliente", b =>
-                {
-                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("KioscoInformaticoServices.Models.Compra", b =>
                 {
                     b.Navigation("Detallescompras");
-                });
-
-            modelBuilder.Entity("KioscoInformaticoServices.Models.Localidad", b =>
-                {
-                    b.Navigation("Clientes");
-
-                    b.Navigation("Proveedores");
                 });
 
             modelBuilder.Entity("KioscoInformaticoServices.Models.Producto", b =>

@@ -249,15 +249,6 @@ public partial class KioscoContext : DbContext
                 Telefonos = "555666777",
                 FechaNacimiento = new DateTime(1978, 2, 3),
                 LocalidadId = 3
-            },
-            new Cliente
-            {
-                Id = 4,
-                Nombre = "Ana Martínez",
-                Direccion = "Ruta Nacional 19 Km 58",
-                Telefonos = "444555666",
-                FechaNacimiento = new DateTime(2000, 12, 12),
-                LocalidadId = 1
             }
             );
 
@@ -292,76 +283,6 @@ public partial class KioscoContext : DbContext
             Cbu = "0000003100010000000003",
             CondicionIva = CondicionIvaEnum.ConsumidorFinal,
             LocalidadId = 3
-        },
-        new Proveedor
-        {
-            Id = 4,
-            Nombre = "Proveedor D",
-            Direccion = "Calle 4",
-            Telefonos = "444444444",
-            Cbu = "0000003100010000000004",
-            CondicionIva = CondicionIvaEnum.Exento,
-            LocalidadId = 1
-        },
-        new Proveedor
-        {
-            Id = 5,
-            Nombre = "Proveedor E",
-            Direccion = "Calle 5",
-            Telefonos = "555555555",
-            Cbu = "0000003100010000000005",
-            CondicionIva = CondicionIvaEnum.NoResponsable,
-            LocalidadId = 1
-        },
-        new Proveedor
-        {
-            Id = 6,
-            Nombre = "Proveedor F",
-            Direccion = "Calle 6",
-            Telefonos = "666666666",
-            Cbu = "0000003100010000000006",
-            CondicionIva = CondicionIvaEnum.ResponsableNoInscripto,
-            LocalidadId = 2
-        },
-        new Proveedor
-        {
-            Id = 7,
-            Nombre = "Proveedor G",
-            Direccion = "Calle 7",
-            Telefonos = "777777777",
-            Cbu = "0000003100010000000007",
-            CondicionIva = CondicionIvaEnum.ResponsableInscripto,
-            LocalidadId = 3
-        },
-        new Proveedor
-        {
-            Id = 8,
-            Nombre = "Proveedor H",
-            Direccion = "Calle 8",
-            Telefonos = "888888888",
-            Cbu = "0000003100010000000008",
-            CondicionIva = CondicionIvaEnum.SujetoNoCategorizado,
-            LocalidadId = 2
-        },
-        new Proveedor
-        {
-            Id = 9,
-            Nombre = "Proveedor I",
-            Direccion = "Calle 9",
-            Telefonos = "999999999",
-            Cbu = "0000003100010000000009",
-            CondicionIva = CondicionIvaEnum.Monotributista,
-            LocalidadId = 3
-        },
-        new Proveedor
-        {
-            Id = 10,
-            Nombre = "Proveedor J",
-            Direccion = "Calle 10",
-            Telefonos = "101010101",
-            Cbu = "0000003100010000000010",
-            CondicionIva = CondicionIvaEnum.Exento,
-            LocalidadId = 3
         }
     );
         // Carga de datos semilla de Ventas
@@ -390,7 +311,7 @@ public partial class KioscoContext : DbContext
                 FormaPago = FormaDePagoEnum.Tarjeta_Debito,
                 Iva = 21,
                 Total = 8000m,
-                ClienteId = 1,
+                ClienteId = 3,
                 Fecha = DateTime.Now
             }
         );
@@ -423,15 +344,6 @@ public partial class KioscoContext : DbContext
                 Total = 3000,
                 Fecha = new DateTime(2021, 5, 17),
                 ProveedorId = 3
-            },
-            new Compra
-            {
-                Id = 4,
-                FormaDePago = FormaDePagoEnum.Efectivo,
-                Iva = 0,
-                Total = 4000,
-                Fecha = new DateTime(2021, 5, 18),
-                ProveedorId = 4
             }
         );
 
