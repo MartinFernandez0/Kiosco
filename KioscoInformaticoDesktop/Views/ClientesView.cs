@@ -43,6 +43,8 @@ namespace KioscoInformaticoDesktop.Views
         {
             listaClientes.DataSource = await ClienteService.GetAllAsync();
             listaAFiltrar = (List<Cliente>)listaClientes.DataSource;
+
+            dataGridClientesView.Columns["LocalidadId"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

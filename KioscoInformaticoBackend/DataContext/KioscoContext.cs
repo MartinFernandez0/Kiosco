@@ -200,9 +200,9 @@ public partial class KioscoContext : DbContext
             entity.Property(e => e.Fecha).HasMaxLength(6);
             entity.Property(e => e.FormaPago).HasColumnType("int(11)");
 
-            entity.HasOne(d => d.Cliente).WithMany(p => p.Venta)
-                .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK_Ventas_Clientes_ClienteId");
+            //entity.HasOne(d => d.Cliente).WithMany(p => p.Venta)
+            //    .HasForeignKey(d => d.ClienteId)
+            //    .HasConstraintName("FK_Ventas_Clientes_ClienteId");
         });
         #endregion
 

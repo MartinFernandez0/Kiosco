@@ -14,4 +14,6 @@ public partial class Localidad
     //public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
 
     //public virtual ICollection<Proveedor> Proveedores { get; set; } = new List<Proveedor>();
+
+    public override string ToString() => Nombre;
 }

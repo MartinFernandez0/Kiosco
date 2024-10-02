@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label3 = new Label();
             txtFiltro = new TextBox();
             btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -198,14 +198,14 @@
             dataGridClientesView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridClientesView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridClientesView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridClientesView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridClientesView.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridClientesView.Location = new Point(-3, 0);
             dataGridClientesView.Margin = new Padding(3, 2, 3, 2);
             dataGridClientesView.Name = "dataGridClientesView";
@@ -239,6 +239,7 @@
             // 
             // comboBoxLocalidades
             // 
+            comboBoxLocalidades.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxLocalidades.FormattingEnabled = true;
             comboBoxLocalidades.Location = new Point(100, 204);
             comboBoxLocalidades.Name = "comboBoxLocalidades";
@@ -256,9 +257,10 @@
             // 
             // dateTimeFechaNacimiento
             // 
-            dateTimeFechaNacimiento.Location = new Point(92, 163);
+            dateTimeFechaNacimiento.Format = DateTimePickerFormat.Short;
+            dateTimeFechaNacimiento.Location = new Point(158, 164);
             dateTimeFechaNacimiento.Name = "dateTimeFechaNacimiento";
-            dateTimeFechaNacimiento.Size = new Size(212, 23);
+            dateTimeFechaNacimiento.Size = new Size(97, 23);
             dateTimeFechaNacimiento.TabIndex = 23;
             // 
             // label6
