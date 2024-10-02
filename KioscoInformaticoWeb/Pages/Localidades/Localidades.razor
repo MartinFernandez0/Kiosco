@@ -1,9 +1,9 @@
 ﻿@page "/localidades"
 @inject IGenericService<Localidad> LocalidadService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
-
-<h3>Localidades</h3>
+<HeaderPage TitlePage="Localidades" />
 
 @if (localidades == null)
 {
@@ -26,10 +26,10 @@ else
                     <td>@localidad.Id</td>
                     <td>@localidad.Nombre</td>
                     <td>
-                        <a href="/editarlocalidad?idLocalidadEditada=@localidad.Id">Editar</a>
+                        <a href="/editarlocalidad?idLocalidadEditada=@localidad.Id" class="btn btn-primary">Editar</a>
                     </td>
                     <td>
-                        <button title="Eliminar" @onclick="()=>Eliminar(localidad)">Eliminar</button>
+                        <button title="Eliminar" @onclick="()=>Eliminar(localidad)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             }
@@ -37,7 +37,7 @@ else
     </table>
 }
 
-<button @onclick="AgregarLocalidad">Agregar Localidad</button>
+<button @onclick="AgregarLocalidad" class="btn btn-success">Agregar Localidad</button>
 
 @code {
     private List<Localidad>? localidades;
@@ -50,12 +50,23 @@ else
     {
         NavigationManager.NavigateTo("/agregarlocalidad");
     }
-    public async Task Eliminar(Localidad localidad)
+    private async Task Eliminar(Localidad localidad)
     {
-        await LocalidadService.DeleteAsync(localidad.Id);
-        localidades = await LocalidadService.GetAllAsync();
-        StateHasChanged();
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+        {
+            Title = "Borrando Localidad",
+            Text = $"¿Está seguro que desea borrar la localidad {localidad.Nombre}?",
+            Icon = SweetAlertIcon.Warning,
+            ShowCancelButton = true,
+            ConfirmButtonText = "Sí, quiero borrarla",
+            CancelButtonText = "No, espera"
+        });
+
+        if (respuesta.IsConfirmed)
+        {
+            await LocalidadService.DeleteAsync(localidad.Id);
+            localidades = await LocalidadService.GetAllAsync();
+            StateHasChanged();
+        }
     }
 }
-
-

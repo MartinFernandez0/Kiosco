@@ -1,8 +1,9 @@
 ﻿@page "/clientes"
 @inject IGenericService<Cliente> ClienteService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
-<h3>Clientes</h3>
+<HeaderPage TitlePage="Clientes" />
 
 @if (clientes == null)
 {
@@ -15,6 +16,7 @@ else
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -24,10 +26,10 @@ else
                     <td>@cliente.Id</td>
                     <td>@cliente.Nombre</td>
                     <td>
-                        <a href="/editarcliente?idClienteEditado=@cliente.Id">Editar</a>
+                        <a href="/editarcliente?idClienteEditado=@cliente.Id" class="btn btn-primary">Editar</a>
                     </td>
                     <td>
-                        <button title="Eliminar" @onclick="()=>Eliminar(cliente)">Eliminar</button>
+                        <button title="Eliminar" @onclick="()=>Eliminar(cliente)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             }
@@ -35,24 +37,38 @@ else
     </table>
 }
 
-<button @onclick="AgregarCliente">Agregar Cliente</button>
+<button @onclick="AgregarCliente" class="btn btn-success">Agregar Cliente</button>
 
 @code {
-    private List<Cliente>? clientes;
+    private List<Cliente> clientes;
 
     protected override async Task OnInitializedAsync()
     {
         clientes = await ClienteService.GetAllAsync();
     }
-    private void AgregarCliente()
+
+    public void AgregarCliente()
     {
         NavigationManager.NavigateTo("/agregarcliente");
     }
+
     private async Task Eliminar(Cliente cliente)
     {
-        await ClienteService.DeleteAsync(cliente.Id);
-        clientes = await ClienteService.GetAllAsync();
-        StateHasChanged();
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+        {
+            Title = "Borrando Cliente",
+            Text = $"¿Está seguro que desea borrar al cliente {cliente.Nombre}?",
+            Icon = SweetAlertIcon.Warning,
+            ShowCancelButton = true,
+            ConfirmButtonText = "Sí, quiero borrarlo",
+            CancelButtonText = "No, espera"
+        });
+
+        if (respuesta.IsConfirmed)
+        {
+            await ClienteService.DeleteAsync(cliente.Id);
+            clientes = await ClienteService.GetAllAsync();
+            StateHasChanged();
+        }
     }
 }
-
