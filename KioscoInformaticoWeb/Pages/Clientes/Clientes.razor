@@ -16,6 +16,8 @@ else
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Telefono</th>
                 <th></th>
             </tr>
         </thead>
@@ -25,6 +27,8 @@ else
                 <tr>
                     <td>@cliente.Id</td>
                     <td>@cliente.Nombre</td>
+                    <td>@cliente.Direccion</td>
+                    <td>@cliente.Telefonos</td>
                     <td>
                         <a href="/editarcliente?idClienteEditado=@cliente.Id" class="btn btn-primary">Editar</a>
                     </td>
