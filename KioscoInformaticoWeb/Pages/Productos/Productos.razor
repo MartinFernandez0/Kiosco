@@ -28,13 +28,16 @@ else
                     <td>
                         <a href="/editarproducto?idProductoEditado=@producto.Id">Editar</a>
                     </td>
+                    <td>
+                        <button title="Eliminar" @onclick="()=>Eliminar(producto)" class="btn btn-danger">Eliminar</button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 }
 
-<button @onclick="AgregarProducto">Agregar Producto</button>
+<button @onclick="AgregarProducto" class="btn btn-primary">Agregar Producto</button>
 
 @code {
     private List<Producto>? productos;
@@ -47,5 +50,12 @@ else
     public void AgregarProducto()
     {
         NavigationManager.NavigateTo("/agregarproducto");
+    }
+
+    public async Task Eliminar(Producto producto)
+    {
+        await ProductoService.DeleteAsync(producto.Id);
+        productos = await ProductoService.GetAllAsync();
+        StateHasChanged();
     }
 }

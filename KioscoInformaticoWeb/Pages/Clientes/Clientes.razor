@@ -1,15 +1,6 @@
-﻿
-@code {
-    private List<Cliente>? clientes;
-
-    protected override async Task OnInitializedAsync()
-    {
-        clientes = await ClienteService.GetAllAsync();
-    }
-}
-
-@page "/clientes"
+﻿@page "/clientes"
 @inject IGenericService<Cliente> ClienteService
+@inject NavigationManager NavigationManager
 
 <h3>Clientes</h3>
 
@@ -35,8 +26,33 @@ else
                     <td>
                         <a href="/editarcliente?idClienteEditado=@cliente.Id">Editar</a>
                     </td>
+                    <td>
+                        <button title="Eliminar" @onclick="()=>Eliminar(cliente)">Eliminar</button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 }
+
+<button @onclick="AgregarCliente">Agregar Cliente</button>
+
+@code {
+    private List<Cliente>? clientes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientes = await ClienteService.GetAllAsync();
+    }
+    private void AgregarCliente()
+    {
+        NavigationManager.NavigateTo("/agregarcliente");
+    }
+    private async Task Eliminar(Cliente cliente)
+    {
+        await ClienteService.DeleteAsync(cliente.Id);
+        clientes = await ClienteService.GetAllAsync();
+        StateHasChanged();
+    }
+}
+

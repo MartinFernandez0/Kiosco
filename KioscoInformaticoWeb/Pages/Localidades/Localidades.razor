@@ -28,6 +28,9 @@ else
                     <td>
                         <a href="/editarlocalidad?idLocalidadEditada=@localidad.Id">Editar</a>
                     </td>
+                    <td>
+                        <button title="Eliminar" @onclick="()=>Eliminar(localidad)">Eliminar</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -46,6 +49,12 @@ else
     public void AgregarLocalidad()
     {
         NavigationManager.NavigateTo("/agregarlocalidad");
+    }
+    public async Task Eliminar(Localidad localidad)
+    {
+        await LocalidadService.DeleteAsync(localidad.Id);
+        localidades = await LocalidadService.GetAllAsync();
+        StateHasChanged();
     }
 }
 
