@@ -98,7 +98,8 @@ namespace KioscoInformaticoBackend.Controllers
                 return NotFound();
             }
 
-            _context.Localidades.Remove(localidad);
+            localidad.Eliminado = true;
+            _context.Localidades.Update(localidad);
             await _context.SaveChangesAsync();
 
             return NoContent();

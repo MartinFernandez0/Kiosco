@@ -20,5 +20,5 @@ public partial class Venta
 
     public virtual Cliente Cliente { get; set; } = null!;
 
-    public virtual ICollection<DetalleVenta> Detallesventa { get; set; } = new List<DetalleVenta>();
+    public bool Eliminado { get; set; } = false;
 }

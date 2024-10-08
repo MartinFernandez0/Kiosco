@@ -98,7 +98,8 @@ namespace KioscoInformaticoBackend.Controllers
                 return NotFound();
             }
 
-            _context.Proveedores.Remove(proveedor);
+            proveedor.Eliminado = true;
+            _context.Proveedores.Update(proveedor);
             await _context.SaveChangesAsync();
 
             return NoContent();

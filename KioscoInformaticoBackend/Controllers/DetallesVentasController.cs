@@ -94,7 +94,8 @@ namespace KioscoInformaticoBackend.Controllers
                 return NotFound();
             }
 
-            _context.Detallesventas.Remove(detalleVenta);
+            detalleVenta.Eliminado = true;
+            _context.Detallesventas.Update(detalleVenta);
             await _context.SaveChangesAsync();
 
             return NoContent();

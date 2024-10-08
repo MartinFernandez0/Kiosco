@@ -18,4 +18,6 @@ public partial class DetalleVenta
     public virtual Producto Producto { get; set; } = null!;
 
     public virtual Venta Venta { get; set; } = null!;
+
+    public bool Eliminado { get; set; } = false;
 }

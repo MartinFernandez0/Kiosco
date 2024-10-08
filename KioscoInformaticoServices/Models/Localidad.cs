@@ -10,10 +10,7 @@ public partial class Localidad
 
     [Required (ErrorMessage = "El campo nombre es obligatorio")]
     public string Nombre { get; set; } = null!;
-
-    //public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
-
-    //public virtual ICollection<Proveedor> Proveedores { get; set; } = new List<Proveedor>();
-
     public override string ToString() => Nombre;
+
+    public bool Eliminado { get; set; } = false;
 }
