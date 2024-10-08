@@ -261,7 +261,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 1",
             Telefonos = "111111111",
             Cbu = "0000003100010000000001",
-            CondicionIva = CondicionIvaEnum.ResponsableInscripto,
+            CondicionIva = CondicionIvaEnum.Responsable_Inscripto,
             LocalidadId = 1
         },
         new Proveedor
@@ -281,7 +281,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 3",
             Telefonos = "333333333",
             Cbu = "0000003100010000000003",
-            CondicionIva = CondicionIvaEnum.ConsumidorFinal,
+            CondicionIva = CondicionIvaEnum.Consumidor_Final,
             LocalidadId = 3
         }
     );

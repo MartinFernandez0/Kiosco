@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            txtFiltroProveedor = new TextBox();
+            txtFiltro = new TextBox();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             tabControl1 = new TabControl();
             tabPageLista = new TabPage();
             dataGridProveedores = new DataGridView();
             tabPageAgregarEditar = new TabPage();
+            comboBoxLocalidades = new ComboBox();
             txtCbu = new TextBox();
             label7 = new Label();
             label6 = new Label();
@@ -51,7 +52,6 @@
             panel1 = new Panel();
             label1 = new Label();
             btnAgregar = new FontAwesome.Sharp.IconButton();
-            comboBoxLocalidades = new ComboBox();
             tabControl1.SuspendLayout();
             tabPageLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridProveedores).BeginInit();
@@ -69,12 +69,12 @@
             label3.TabIndex = 26;
             label3.Text = "BUSCAR PROVEEDOR";
             // 
-            // txtFiltroProveedor
+            // txtFiltro
             // 
-            txtFiltroProveedor.Location = new Point(301, 117);
-            txtFiltroProveedor.Name = "txtFiltroProveedor";
-            txtFiltroProveedor.Size = new Size(278, 23);
-            txtFiltroProveedor.TabIndex = 25;
+            txtFiltro.Location = new Point(301, 117);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(278, 23);
+            txtFiltro.TabIndex = 25;
             // 
             // btnBuscar
             // 
@@ -91,7 +91,6 @@
             btnBuscar.TabIndex = 24;
             btnBuscar.Text = "Busqueda";
             btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // btnEliminar
             // 
@@ -172,6 +171,15 @@
             tabPageAgregarEditar.TabIndex = 1;
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxLocalidades
+            // 
+            comboBoxLocalidades.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxLocalidades.FormattingEnabled = true;
+            comboBoxLocalidades.Location = new Point(93, 186);
+            comboBoxLocalidades.Name = "comboBoxLocalidades";
+            comboBoxLocalidades.Size = new Size(140, 23);
+            comboBoxLocalidades.TabIndex = 26;
             // 
             // txtCbu
             // 
@@ -338,22 +346,13 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click_1;
             // 
-            // comboBoxLocalidades
-            // 
-            comboBoxLocalidades.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxLocalidades.FormattingEnabled = true;
-            comboBoxLocalidades.Location = new Point(93, 186);
-            comboBoxLocalidades.Name = "comboBoxLocalidades";
-            comboBoxLocalidades.Size = new Size(140, 23);
-            comboBoxLocalidades.TabIndex = 26;
-            // 
             // ProveedoresView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(854, 531);
             Controls.Add(label3);
-            Controls.Add(txtFiltroProveedor);
+            Controls.Add(txtFiltro);
             Controls.Add(btnBuscar);
             Controls.Add(btnEliminar);
             Controls.Add(tabControl1);
@@ -361,6 +360,7 @@
             Controls.Add(panel1);
             Controls.Add(btnAgregar);
             Name = "ProveedoresView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ProveedoresView";
             tabControl1.ResumeLayout(false);
             tabPageLista.ResumeLayout(false);
@@ -376,7 +376,7 @@
         #endregion
 
         private Label label3;
-        private TextBox txtFiltroProveedor;
+        private TextBox txtFiltro;
         private FontAwesome.Sharp.IconButton btnBuscar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private TabControl tabControl1;

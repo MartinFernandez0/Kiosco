@@ -17,13 +17,17 @@ namespace KioscoInformaticoDesktop.Views
     {
         IProveedorService proveedorService = new ProveedorService();
         ILocalidadService localidadService = new LocalidadService();
-        BindingSource ListProveedores = new BindingSource();
+
+        BindingSource ListaProveedores = new BindingSource();
+
+        List<Proveedor> ListaAFiltrar = new List<Proveedor>();
+
         Proveedor proveedorCurrent;
 
         public ProveedoresView()
         {
             InitializeComponent();
-            dataGridProveedores.DataSource = ListProveedores;
+            dataGridProveedores.DataSource = ListaProveedores;
             CargarGrilla();
             CargarCombo();
         }
@@ -39,19 +43,8 @@ namespace KioscoInformaticoDesktop.Views
         private async Task CargarGrilla()
         {
             var proveedores = await proveedorService.GetAllAsync(null);
-            ListProveedores.DataSource = proveedores;
-            dataGridProveedores.Columns[5].Visible = false;
-        }
-
-        private async void FiltrarProveedor()
-        {
-            var proveedoresFiltrados = await proveedorService.GetAllAsync(txtFiltroProveedor.Text);
-            ListProveedores.DataSource = proveedoresFiltrados;
-        }
-
-        private void btnBuscar_Click_1(object sender, EventArgs e)
-        {
-            FiltrarProveedor();
+            ListaProveedores.DataSource = proveedores;
+            dataGridProveedores.AutoGenerateColumns = true; // Mostrar todas las columnas automáticamente
         }
 
         private async void btnGuardar_Click_1(object sender, EventArgs e)
@@ -103,7 +96,7 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            proveedorCurrent = (Proveedor)ListProveedores.Current;
+            proveedorCurrent = (Proveedor)ListaProveedores.Current;
             txtNombre.Text = proveedorCurrent.Nombre;
             txtDireccion.Text = proveedorCurrent.Direccion;
             txtTelefonos.Text = proveedorCurrent.Telefonos;
@@ -114,23 +107,32 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            proveedorCurrent = (Proveedor)ListProveedores.Current;
-            if (proveedorCurrent == null)
+            if (ListaProveedores.Current is Proveedor proveedor)
             {
-                MessageBox.Show("Debe seleccionar un proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var result = MessageBox.Show($"¿Está seguro que desea eliminar el proveedor {proveedorCurrent.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                proveedorCurrent = (Proveedor)ListProveedores.Current;
-                if (proveedorCurrent == null)
+                var result = MessageBox.Show("¿Está seguro de eliminar el proveedor?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    await proveedorService.DeleteAsync(proveedorCurrent.Id);
+                    await proveedorService.DeleteAsync(proveedor.Id);
                     await CargarGrilla();
+                    MessageBox.Show("Proveedor eliminado correctamente");
                 }
             }
-            proveedorCurrent = null;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FiltrarClientes();
+        }
+
+        private void FiltrarClientes()
+        {
+            var filteredClientes = ListaAFiltrar.Where(c => c.Nombre.Contains(txtFiltro.Text)).ToList();
+            ListaProveedores.DataSource = new BindingSource(filteredClientes, null);
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarClientes();
         }
     }
 }

@@ -159,10 +159,5 @@ namespace KioscoInformaticoDesktop.Views
         {
             FiltrarClientes();
         }
-
-        private void dataGridClientesView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -213,7 +213,6 @@
             dataGridClientesView.RowHeadersWidth = 51;
             dataGridClientesView.Size = new Size(609, 308);
             dataGridClientesView.TabIndex = 16;
-            dataGridClientesView.CellContentClick += dataGridClientesView_CellContentClick;
             // 
             // tabPageAgregarEditar
             // 
