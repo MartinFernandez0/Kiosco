@@ -20,8 +20,6 @@ namespace KioscoInformaticoDesktop.Views
 
         BindingSource ListaProveedores = new BindingSource();
 
-        List<Proveedor> ListaAFiltrar = new List<Proveedor>();
-
         Proveedor proveedorCurrent;
 
         public ProveedoresView()
@@ -121,18 +119,17 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FiltrarClientes();
+            FiltrarProveedor();
         }
 
-        private void FiltrarClientes()
+        private async void FiltrarProveedor()
         {
-            var filteredClientes = ListaAFiltrar.Where(c => c.Nombre.Contains(txtFiltro.Text)).ToList();
-            ListaProveedores.DataSource = new BindingSource(filteredClientes, null);
+            ListaProveedores.DataSource = await localidadService.GetAllAsync(txtFiltro.Text);
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            FiltrarClientes();
+            //FiltrarLocalidad();
         }
     }
 }

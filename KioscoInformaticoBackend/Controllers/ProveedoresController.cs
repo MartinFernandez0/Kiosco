@@ -23,13 +23,13 @@ namespace KioscoInformaticoBackend.Controllers
 
         // GET: api/Proveedores
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Proveedor>>> GetProveedores([FromQuery] string? Filtro)
+        public async Task<ActionResult<IEnumerable<Proveedor>>> GetProvedor([FromQuery] string? filtro)
         {
-            if (Filtro != null)
+            if (filtro != null)
             {
-                return await _context.Proveedores.Include(p => p.Localidad).Where(p => p.Nombre.ToUpper().Contains(Filtro.ToUpper())).ToListAsync();
+                return await _context.Proveedores.Where(p => p.Nombre.ToUpper().Contains(filtro.ToUpper())).ToListAsync();
             }
-            return await _context.Proveedores.Include(p => p.Localidad).ToListAsync();
+            return await _context.Proveedores.ToListAsync();
         }
 
         // GET: api/Proveedores/5
