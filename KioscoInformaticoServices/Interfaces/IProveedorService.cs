@@ -9,6 +9,6 @@ namespace KioscoInformaticoServices.Interfaces
 {
     public interface IProveedorService : IGenericService<Proveedor>
     {
-        public Task<List<Proveedor>?> GetAllAsync(string? Filtro);
+        public Task<List<Proveedor>?> GetAllAsync(string? filtro);
     }
 }
