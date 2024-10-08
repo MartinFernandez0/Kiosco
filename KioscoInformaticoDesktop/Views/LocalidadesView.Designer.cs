@@ -103,7 +103,6 @@
             dataGridLocalidades.AllowUserToDeleteRows = false;
             dataGridLocalidades.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridLocalidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridLocalidades.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridLocalidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridLocalidades.Location = new Point(0, 2);
             dataGridLocalidades.Margin = new Padding(3, 2, 3, 2);
@@ -278,7 +277,7 @@
             Controls.Add(btnAgregar);
             Margin = new Padding(3, 2, 3, 2);
             Name = "LocalidadesView";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Localidades";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

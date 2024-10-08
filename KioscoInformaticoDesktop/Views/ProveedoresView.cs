@@ -117,15 +117,15 @@ namespace KioscoInformaticoDesktop.Views
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            FiltrarProveedor();
-        }
-
         private async void FiltrarProveedor()
         {
             var proveedoresFiltrados = await proveedorService.GetAllAsync(txtFiltro.Text);
             ListaProveedores.DataSource = proveedoresFiltrados;
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            FiltrarProveedor();
         }
     }
 }

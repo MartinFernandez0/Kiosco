@@ -91,6 +91,7 @@
             btnBuscar.TabIndex = 24;
             btnBuscar.Text = "Busqueda";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // btnEliminar
             // 
@@ -139,7 +140,6 @@
             dataGridProveedores.AllowUserToDeleteRows = false;
             dataGridProveedores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridProveedores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridProveedores.Location = new Point(0, 0);
             dataGridProveedores.Margin = new Padding(3, 2, 3, 2);

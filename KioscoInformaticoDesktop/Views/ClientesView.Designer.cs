@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label3 = new Label();
             txtFiltro = new TextBox();
             btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -196,16 +196,15 @@
             dataGridClientesView.AllowUserToDeleteRows = false;
             dataGridClientesView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridClientesView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridClientesView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridClientesView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridClientesView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridClientesView.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridClientesView.Location = new Point(-3, 0);
             dataGridClientesView.Margin = new Padding(3, 2, 3, 2);
             dataGridClientesView.Name = "dataGridClientesView";
@@ -368,6 +367,7 @@
             Controls.Add(panel1);
             Controls.Add(tabControl1);
             Name = "ClientesView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ClientesView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

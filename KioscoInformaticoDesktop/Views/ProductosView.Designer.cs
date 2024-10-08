@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridProductosView = new DataGridView();
             tabControl1 = new TabControl();
             tabPageLista = new TabPage();
@@ -58,17 +58,16 @@
             dataGridProductosView.AllowUserToDeleteRows = false;
             dataGridProductosView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridProductosView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridProductosView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridProductosView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridProductosView.Location = new Point(0, 0);
             dataGridProductosView.Margin = new Padding(3, 2, 3, 2);
             dataGridProductosView.Name = "dataGridProductosView";
@@ -284,7 +283,7 @@
             Controls.Add(panel1);
             Controls.Add(tabControl1);
             Name = "ProductosView";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Productos";
             ((System.ComponentModel.ISupportInitialize)dataGridProductosView).EndInit();
             tabControl1.ResumeLayout(false);
