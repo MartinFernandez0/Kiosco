@@ -124,12 +124,8 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void FiltrarProveedor()
         {
-            ListaProveedores.DataSource = await localidadService.GetAllAsync(txtFiltro.Text);
-        }
-
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            //FiltrarLocalidad();
+            var proveedoresFiltrados = await proveedorService.GetAllAsync(txtFiltro.Text);
+            ListaProveedores.DataSource = proveedoresFiltrados;
         }
     }
 }
